@@ -91,7 +91,7 @@ insert into tbFornecedores(nome, email, telefone, cnpj) values
 ('Importadora Lima', 'importadora.lima@example.com', '(41) 98456-7890', '45.678.901/0001-04');
 
 -- Inserindo os dados do Usuario 
-insert into tbUsuarios(nome, senha, codFunc) values ('caua.gpereira', '123456', 1), ('joao.nicolal' ,'154875', 2), ('pedro.matias', '759871', 3), ('Ana catarina', '879564', 4);
+insert into tbUsuarios(nome, senha, codFunc) values ('caua.gpereira', '123456', 1), ('joao.nicolal' ,'154875', 2), ('pedro.matias', '759871', 3), ('jose.antonio', '879564', 4);
 
 -- Inserindo os produtos 
 insert into tbProdutos(descricao, lote, validade, dataEntr, horaEnt, quantidade, preco, codForn) values 
@@ -115,3 +115,8 @@ select * from tbFornecedores;
 select * from tbUsuarios;
 select * from tbProdutos;
 select * from tbVendas;
+
+
+-- inner join 
+select func.nome as 'Nome do Funcionario', usu.nome as 'Nome do Usuario'  from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc = func.codFunc where func.codFunc = 2;
+select func.nome as 'Nome do Funcionario', usu.nome as 'Nome do Usuario'  from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc = func.codFunc where func.nome like "%a%";
